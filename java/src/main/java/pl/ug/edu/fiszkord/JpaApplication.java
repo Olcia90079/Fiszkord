@@ -1,13 +1,9 @@
-package pl.ug.edu.fiszkord;
+/*package pl.ug.edu.fiszkord;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import pl.ug.edu.fiszkord.repository.CustomerRepository;
-import pl.ug.edu.fiszkord.service.CustomerService;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class JpaApplication {
 
 	public static void main(String[] args) {
@@ -15,3 +11,4 @@ public class JpaApplication {
 		//ctx.getBean(CustomerService.class).test();
 	}
 }
+*/

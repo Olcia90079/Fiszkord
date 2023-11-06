@@ -1,17 +1,13 @@
-package pl.ug.edu.fiszkord.controller;
+/*package pl.ug.edu.fiszkord.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.expression.ParseException;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import pl.ug.edu.fiszkord.domain.Customer;
 import pl.ug.edu.fiszkord.repository.CustomerRepository;
 
 import java.sql.Date;
-import java.util.Collections;
-import java.util.Map;
 
 @RestController
 public class CustomerController {
@@ -39,3 +35,4 @@ public class CustomerController {
     }
 
 }
+*/
