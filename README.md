@@ -56,3 +56,18 @@ Zmiana tokenu. Wymagany *refresh_token* w nagłówku Authorization. Zwraca:
 > GET /api/auth/logout
 
 Wylogowanie.
+
+---
+## Grupy (wymaga roli USER)  
+### Tworzenie grupy   
+> POST /api/group/create  
+
+Wymaga access token jako bearer token. Wymagane body:  
+- name: String
+- code: String
+
+### Dołączanie do grupy  
+> POST /api/group/join  
+
+Wymaga access token jako bearer token. Wymagane body:  
+- code: String
