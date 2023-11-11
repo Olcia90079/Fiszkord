@@ -9,8 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import static pl.ug.edu.fiszkord.domain.Role.ADMIN;
-import static pl.ug.edu.fiszkord.domain.Role.MANAGER;
+import static pl.ug.edu.fiszkord.domain.Role.*;
 
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")
@@ -41,7 +40,16 @@ public class SecurityApplication {
 					.password("password")
 					.role(MANAGER)
 					.build();
-			System.out.println("Manager token: " + service.register(manager).getAccessToken());
+//			System.out.println("Manager token: " + service.register(manager).getAccessToken());
+
+			var user = RegisterRequest.builder()
+					.firstname("user")
+					.lastname("user")
+					.email("user@mail.com")
+					.password("password")
+					.role(USER)
+					.build();
+			System.out.println("User token: " + service.register(user).getAccessToken());
 
 		};
 	}

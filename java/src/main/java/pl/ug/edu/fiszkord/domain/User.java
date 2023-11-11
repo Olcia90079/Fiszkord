@@ -1,22 +1,18 @@
 package pl.ug.edu.fiszkord.domain;
 
-import pl.ug.edu.fiszkord.domain.Token;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+
 import java.util.Collection;
 import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pl.ug.edu.fiszkord.groups.Group;
 
 @Data
 @Builder
@@ -37,8 +33,22 @@ public class User implements UserDetails {
   @Enumerated(EnumType.STRING)
   private Role role;
 
-  @OneToMany(mappedBy = "user")
+  @OneToMany
   private List<Token> tokens;
+
+  @ManyToMany
+  @JoinTable(
+          name = "admin_group",
+          joinColumns = @JoinColumn(name = "user_id"),
+          inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private List<Group> adminOfGroups;
+
+  @ManyToMany
+  @JoinTable(
+          name = "member_group",
+          joinColumns = @JoinColumn(name = "user_id"),
+          inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private List<Group> memberOfGroups;
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
