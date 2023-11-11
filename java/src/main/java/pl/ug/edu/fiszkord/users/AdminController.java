@@ -1,4 +1,4 @@
-package pl.ug.edu.fiszkord.controller;
+package pl.ug.edu.fiszkord.users;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.security.access.prepost.PreAuthorize;

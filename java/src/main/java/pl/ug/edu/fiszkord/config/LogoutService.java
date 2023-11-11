@@ -1,6 +1,6 @@
 package pl.ug.edu.fiszkord.config;
 
-import pl.ug.edu.fiszkord.repository.TokenRepository;
+import pl.ug.edu.fiszkord.tokens.TokenRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;

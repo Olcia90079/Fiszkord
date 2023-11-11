@@ -1,4 +1,4 @@
-package pl.ug.edu.fiszkord.domain;
+package pl.ug.edu.fiszkord.users;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static pl.ug.edu.fiszkord.domain.Permission.ADMIN_DELETE;
-import static pl.ug.edu.fiszkord.domain.Permission.ADMIN_CREATE;
-import static pl.ug.edu.fiszkord.domain.Permission.ADMIN_READ;
-import static pl.ug.edu.fiszkord.domain.Permission.ADMIN_UPDATE;
-import static pl.ug.edu.fiszkord.domain.Permission.MANAGER_CREATE;
-import static pl.ug.edu.fiszkord.domain.Permission.MANAGER_DELETE;
-import static pl.ug.edu.fiszkord.domain.Permission.MANAGER_READ;
-import static pl.ug.edu.fiszkord.domain.Permission.MANAGER_UPDATE;
+import static pl.ug.edu.fiszkord.users.Permission.ADMIN_DELETE;
+import static pl.ug.edu.fiszkord.users.Permission.ADMIN_CREATE;
+import static pl.ug.edu.fiszkord.users.Permission.ADMIN_READ;
+import static pl.ug.edu.fiszkord.users.Permission.ADMIN_UPDATE;
+import static pl.ug.edu.fiszkord.users.Permission.MANAGER_CREATE;
+import static pl.ug.edu.fiszkord.users.Permission.MANAGER_DELETE;
+import static pl.ug.edu.fiszkord.users.Permission.MANAGER_READ;
+import static pl.ug.edu.fiszkord.users.Permission.MANAGER_UPDATE;
 
 @RequiredArgsConstructor
 public enum Role {

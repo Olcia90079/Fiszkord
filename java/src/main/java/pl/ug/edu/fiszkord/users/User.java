@@ -1,6 +1,5 @@
-package pl.ug.edu.fiszkord.domain;
+package pl.ug.edu.fiszkord.users;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -12,6 +11,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import pl.ug.edu.fiszkord.tokens.Token;
 import pl.ug.edu.fiszkord.groups.Group;
 
 @Data
@@ -27,6 +27,7 @@ public class User implements UserDetails {
   private Integer id;
   private String firstname;
   private String lastname;
+  @Column(unique=true)
   private String email;
   private String password;
 
@@ -43,11 +44,12 @@ public class User implements UserDetails {
           inverseJoinColumns = @JoinColumn(name = "group_id"))
   private List<Group> adminOfGroups;
 
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(
           name = "member_group",
           joinColumns = @JoinColumn(name = "user_id"),
-          inverseJoinColumns = @JoinColumn(name = "group_id"))
+          inverseJoinColumns = @JoinColumn(name = "group_id")
+  )
   private List<Group> memberOfGroups;
 
   @Override

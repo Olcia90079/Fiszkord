@@ -1,4 +1,4 @@
-package pl.ug.edu.fiszkord.domain;
+package pl.ug.edu.fiszkord.tokens;
 
 public enum TokenType {
   BEARER

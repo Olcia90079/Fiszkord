@@ -1,18 +1,14 @@
 package pl.ug.edu.fiszkord.groups;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UniqueElements;
-import pl.ug.edu.fiszkord.domain.Token;
-import pl.ug.edu.fiszkord.domain.User;
+import pl.ug.edu.fiszkord.users.User;
 import pl.ug.edu.fiszkord.subjects.Subject;
 
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Builder

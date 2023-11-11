@@ -1,4 +1,4 @@
-package pl.ug.edu.fiszkord.domain;
+package pl.ug.edu.fiszkord.users;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

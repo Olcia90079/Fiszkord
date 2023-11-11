@@ -1,12 +1,11 @@
 package pl.ug.edu.fiszkord.auth;
 
 import pl.ug.edu.fiszkord.config.JwtService;
-import pl.ug.edu.fiszkord.domain.Token;
-import pl.ug.edu.fiszkord.repository.TokenRepository;
-import pl.ug.edu.fiszkord.domain.TokenType;
-import pl.ug.edu.fiszkord.domain.Role;
-import pl.ug.edu.fiszkord.domain.User;
-import pl.ug.edu.fiszkord.repository.UserRepository;
+import pl.ug.edu.fiszkord.tokens.Token;
+import pl.ug.edu.fiszkord.tokens.TokenRepository;
+import pl.ug.edu.fiszkord.tokens.TokenType;
+import pl.ug.edu.fiszkord.users.User;
+import pl.ug.edu.fiszkord.users.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,10 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -72,7 +68,7 @@ public class AuthenticationService {
     var token = Token.builder()
         .user(user)
         .token(jwtToken)
-        .tokenType(TokenType.BEARER)
+        //.tokenType(TokenType.BEARER)
         .expired(false)
         .revoked(false)
         .build();

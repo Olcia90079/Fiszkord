@@ -2,14 +2,13 @@ package pl.ug.edu.fiszkord;
 
 import pl.ug.edu.fiszkord.auth.AuthenticationService;
 import pl.ug.edu.fiszkord.auth.RegisterRequest;
-import pl.ug.edu.fiszkord.domain.Role;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-import static pl.ug.edu.fiszkord.domain.Role.*;
+import static pl.ug.edu.fiszkord.users.Role.*;
 
 @SpringBootApplication
 @EnableJpaAuditing(auditorAwareRef = "auditorAware")

@@ -1,6 +1,6 @@
-package pl.ug.edu.fiszkord.domain;
+package pl.ug.edu.fiszkord.tokens;
 
-import pl.ug.edu.fiszkord.domain.User;
+import pl.ug.edu.fiszkord.users.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -30,7 +30,7 @@ public class Token {
   public String token;
 
   @Enumerated(EnumType.STRING)
-  public TokenType tokenType = TokenType.BEARER;
+  final public TokenType tokenType = TokenType.BEARER;
 
   public boolean revoked;
 

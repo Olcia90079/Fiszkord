@@ -1,4 +1,4 @@
-package pl.ug.edu.fiszkord.controller;
+package pl.ug.edu.fiszkord.demo;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import lombok.RequiredArgsConstructor;
@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.ug.edu.fiszkord.service.UserService;
+import pl.ug.edu.fiszkord.users.UserService;
 
 import java.security.Principal;
 

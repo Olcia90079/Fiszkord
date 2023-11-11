@@ -1,6 +1,6 @@
 package pl.ug.edu.fiszkord.auth;
 
-import pl.ug.edu.fiszkord.domain.Role;
+import pl.ug.edu.fiszkord.users.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

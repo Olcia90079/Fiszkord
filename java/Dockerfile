@@ -2,7 +2,8 @@
 
 FROM gradle:7.4-jdk17-alpine AS BUILD
 WORKDIR /usr/app/
-COPY . . 
+COPY . .
+RUN mv src/main/resources/docker/application.properties src/main/resources/application.properties
 #RUN gradle bootRun
 ENTRYPOINT exec gradle bootRun
 # Package stage
