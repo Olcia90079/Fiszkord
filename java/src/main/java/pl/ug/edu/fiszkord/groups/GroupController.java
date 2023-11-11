@@ -18,7 +18,7 @@ public class GroupController {
 
     @PostMapping("/create")
     public ResponseEntity<String> createGroup(
-            @RequestBody CreateGroupRequest request,
+            @RequestBody GroupRequest request,
             Principal connectedUser
     ) {
         return service.createGroup(request, connectedUser);
@@ -26,7 +26,7 @@ public class GroupController {
 
     @PostMapping("/join")
     public ResponseEntity<String> joinGroup(
-            @RequestBody CreateGroupRequest request,
+            @RequestBody GroupRequest request,
             Principal connectedUser
     ) {
         return service.joinGroup(request, connectedUser);

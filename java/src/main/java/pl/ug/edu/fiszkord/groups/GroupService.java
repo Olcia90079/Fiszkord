@@ -1,22 +1,16 @@
 package pl.ug.edu.fiszkord.groups;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.Hibernate;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import pl.ug.edu.fiszkord.domain.User;
 import pl.ug.edu.fiszkord.repository.UserRepository;
 
 import java.security.Principal;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +19,7 @@ public class GroupService {
     private final GroupRepository groupRepository;
     private final UserRepository userRepository;
 
-    public ResponseEntity<String> createGroup(CreateGroupRequest request, Principal connectedUser) {
+    public ResponseEntity<String> createGroup(GroupRequest request, Principal connectedUser) {
         var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
         var group = Group.builder()
                 .admins(List.of(user))
@@ -42,7 +36,7 @@ public class GroupService {
         return ResponseEntity.status(201).body("Group " + group.getName() + " created.");
     }
 
-    public ResponseEntity<String> joinGroup(CreateGroupRequest request, Principal connectedUser) {
+    public ResponseEntity<String> joinGroup(GroupRequest request, Principal connectedUser) {
         var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
         Group group = null;
 

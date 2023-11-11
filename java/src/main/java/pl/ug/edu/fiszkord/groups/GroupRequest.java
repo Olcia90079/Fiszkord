@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class JoinGroupRequest {
+public class GroupRequest {
+    private String name;
     private String code;
 }
