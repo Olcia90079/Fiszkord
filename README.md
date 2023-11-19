@@ -71,3 +71,18 @@ Wymaga access token jako bearer token. Wymagane body:
 
 Wymaga access token jako bearer token. Wymagane body:  
 - code: String
+
+---
+## Przedmioty (wymaga roli USER)  
+### Dodanie przedmiotu do grupy   
+> POST /api/subject/create-subject
+
+Wymaga access token jako bearer token. Wymagane body:  
+- groupId: Integer
+- name: String
+
+### Znajdź przedmioty danej grupy
+> GET /api/subject/get-subjects  
+
+Wymaga access token jako bearer token. Wymagane body:  
+- groupId: Integer
