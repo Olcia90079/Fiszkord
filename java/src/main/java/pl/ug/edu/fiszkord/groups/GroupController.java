@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pl.ug.edu.fiszkord.auth.Response;
+import pl.ug.edu.fiszkord.subjects.SubjectRequest;
 
 import java.security.Principal;
 
@@ -14,7 +16,6 @@ import java.security.Principal;
 public class GroupController {
 
     private final GroupService service;
-
 
     @PostMapping("/create")
     public ResponseEntity<String> createGroup(
