@@ -39,7 +39,7 @@ public class GroupService {
             return ResponseEntity.status(409).build();
         }
 
-        return ResponseEntity.status(201).body("Group " + group.getName() + " created.");
+        return ResponseEntity.status(201).body("Group `" + group.getName() + "` created.");
     }
 
     public ResponseEntity<String> joinGroup(GroupRequest request, Principal connectedUser) {
@@ -53,12 +53,12 @@ public class GroupService {
         }
 
         if(group.getMembers().stream().anyMatch(u -> u.getUsername().equals(user.getUsername()))){
-            return ResponseEntity.status(409).body("User " + user.getUsername() + " is already a member of " + group.getName() + " group.");
+            return ResponseEntity.status(409).body("User `" + user.getUsername() + "` is already a member of `" + group.getName() + "` group.");
         }
 
         user.getMemberOfGroups().add(group);
         userRepository.save(user);
 
-        return ResponseEntity.status(202).body("User " + user.getUsername() + " added to " + group.getName() + " group.");
+        return ResponseEntity.status(202).body("User `" + user.getUsername() + "` added to `" + group.getName() + "` group.");
     }
 }
