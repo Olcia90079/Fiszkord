@@ -54,12 +54,12 @@ public class SubjectService {
         return ResponseEntity.status(202).body("Subject `" + subject.getName() + "` added to `" + subject.getGroup().getName() +"` group.");
     }
 
-    public ResponseEntity<List<Subject>> getSubjects(SubjectRequest request, Principal connectedUser) {
+    public ResponseEntity<List<Subject>> getSubjects(String groupId, Principal connectedUser) {
         var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
 
         Group group = null;
         try {
-            group = groupRepository.findById(request.getGroupId()).orElseThrow();
+            group = groupRepository.findById(Integer.parseInt(groupId)).orElseThrow();
         } catch (NoSuchElementException e){
             return ResponseEntity.status(500).build();
         }

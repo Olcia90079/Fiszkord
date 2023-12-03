@@ -1,11 +1,14 @@
 package pl.ug.edu.fiszkord.users;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import pl.ug.edu.fiszkord.subjects.Subject;
 
 import java.security.Principal;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -37,5 +40,31 @@ public class UserService {
     public String getName(Principal connectedUser) {
         var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
         return user.getFirstname()+" "+user.getLastname();
+    }
+
+    public ResponseEntity<UserDTO>  getCurrentUser(Principal connectedUser) {
+        var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
+        return ResponseEntity.status(200).body(
+                UserDTO.builder()
+                .id(user.getId())
+                .email(user.getEmail())
+                .firstname(user.getFirstname())
+                .lastname(user.getLastname())
+                .build());
+    }
+
+    public ResponseEntity<UserDTO> getUser(String userId) {
+        var user = repository.findById(Integer.parseInt(userId));
+        if (user.isEmpty()) {
+            return ResponseEntity.status(404).body(null);
+        }
+        User foundUser = user.get();
+        return ResponseEntity.status(200).body(
+                UserDTO.builder()
+                        .id(foundUser.getId())
+                        .email(foundUser.getEmail())
+                        .firstname(foundUser.getFirstname())
+                        .lastname(foundUser.getLastname())
+                        .build());
     }
 }

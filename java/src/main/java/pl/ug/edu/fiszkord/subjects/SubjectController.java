@@ -26,9 +26,9 @@ public class SubjectController {
 
     @GetMapping("/get-subjects")
     public ResponseEntity<List<Subject>> getSubjects(
-            @RequestBody SubjectRequest request,
+            @RequestParam String groupId,
             Principal connectedUser
     ) {
-        return subjectService.getSubjects(request, connectedUser);
+        return subjectService.getSubjects(groupId, connectedUser);
     }
 }

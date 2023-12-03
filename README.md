@@ -1,7 +1,7 @@
 # Fiszkord
 Spring backend.
 
-### Endpointy
+## Użytkownicy
 ---
 > POST /api/auth/register
 
@@ -21,6 +21,13 @@ Zwraca:
 > GET /api/check
 
 Zwraca wiadomość zalogowanemu użytkownikowi.
+
+---
+
+> GET /api/users[?id={}]
+
+Zwraca dane użytkownika. Parametr id jest opcjonalny, w przypadku
+jego braku zwraca aktualnie zalogowanego użytkownika.
 
 ---
 
@@ -72,6 +79,11 @@ Wymaga access token jako bearer token. Wymagane body:
 Wymaga access token jako bearer token. Wymagane body:  
 - code: String
 
+### Lista grup użytkownika
+> GET /api/group/user-groups
+
+Wymaga access token jako bearer token.
+
 ---
 ## Przedmioty (wymaga roli USER)  
 ### Dodanie przedmiotu do grupy   
@@ -82,7 +94,36 @@ Wymaga access token jako bearer token. Wymagane body:
 - name: String
 
 ### Znajdź przedmioty danej grupy
-> GET /api/subject/get-subjects  
+> GET /api/subject/get-subjects?groupId={}
 
-Wymaga access token jako bearer token. Wymagane body:  
+Wymaga access token jako bearer token. Wymagany parametr:  
 - groupId: Integer
+
+---
+## Wiadomości
+### Podłączanie do brokera czatu
+Lokalnie uruchomiony serwer będzie działał pod adresem `http://localhost:8080/ws`.
+
+Dla wiadomości czatu danego przedmiotu należy zasubskrybować topic `/topic/{subjectId}`.
+
+Przy wysyłaniu wiadomości należy użyć ścieżki `/app/{subjectId}`.
+Zawartość wiadomości to tekstowy JSON z polami:
+
+- sender: String (id użytkownika)
+- content: String 
+
+Serwer przesyła do subskrybentów JSON z polami (sender, content, id, date).
+
+### Wiadomości przedmiotu
+> GET /api/message/?subjectId={}&timestamp={}
+
+Zwraca najnowsze 20 wiadomości dla przedmiotu, opcjonalnie 20
+ostatnich wiadomości przed datą *timestamp*.
+
+Wymagany parametr:
+- subjectId: Integer
+
+Opcjonalny parametr
+- timestamp: Timestamp 
+(String formatu yyyy-mm-dd hh:mm:ss.[fff...])
+

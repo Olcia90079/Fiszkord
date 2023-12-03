@@ -1,12 +1,10 @@
 package pl.ug.edu.fiszkord.subjects;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-@Builder
+@RequiredArgsConstructor
 public class SubjectRequest {
     private Integer groupId;
     private String name;

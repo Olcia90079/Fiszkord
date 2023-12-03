@@ -1,12 +1,10 @@
 package pl.ug.edu.fiszkord.groups;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
-@Builder
+@RequiredArgsConstructor
 public class GroupRequest {
     private String name;
     private String code;

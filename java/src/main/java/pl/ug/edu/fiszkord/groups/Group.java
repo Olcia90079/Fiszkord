@@ -22,10 +22,10 @@ public class Group {
     @GeneratedValue
     private Integer id;
 
-    @ManyToMany(mappedBy = "adminOfGroups", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "adminOfGroups")//, fetch = FetchType.EAGER)
     private List<User> admins;
 
-    @ManyToMany(mappedBy = "memberOfGroups", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "memberOfGroups")//, fetch = FetchType.EAGER)
     private List<User> members;
 
     private String name;

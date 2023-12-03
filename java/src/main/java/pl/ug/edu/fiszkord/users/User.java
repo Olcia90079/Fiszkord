@@ -37,7 +37,7 @@ public class User implements UserDetails {
   @OneToMany
   private List<Token> tokens;
 
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(
           name = "admin_group",
           joinColumns = @JoinColumn(name = "user_id"),

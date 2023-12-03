@@ -8,6 +8,7 @@ import pl.ug.edu.fiszkord.auth.Response;
 import pl.ug.edu.fiszkord.subjects.SubjectRequest;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/group")
@@ -31,6 +32,13 @@ public class GroupController {
             Principal connectedUser
     ) {
         return service.joinGroup(request, connectedUser);
+    }
+
+    @GetMapping("/user-groups")
+    public ResponseEntity<List<GroupDTO>> getGroups(
+            Principal connectedUser
+    ) {
+        return service.getUserGroups(connectedUser);
     }
 
 }
