@@ -2,12 +2,10 @@ package pl.ug.edu.fiszkord.groups;
 
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Hibernate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import pl.ug.edu.fiszkord.users.User;
 import pl.ug.edu.fiszkord.users.UserDTO;
@@ -49,7 +47,6 @@ public class GroupService {
     public ResponseEntity<String> joinGroup(GroupRequest request, Principal connectedUser) {
         var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
         Group group = null;
-
         try {
             group = groupRepository.findByCode(request.getCode()).orElseThrow();
         } catch (NoSuchElementException e){

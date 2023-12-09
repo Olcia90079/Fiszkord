@@ -1,21 +1,16 @@
 package pl.ug.edu.fiszkord.subjects;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import pl.ug.edu.fiszkord.groups.Group;
 import pl.ug.edu.fiszkord.groups.GroupRepository;
 import pl.ug.edu.fiszkord.users.User;
-import pl.ug.edu.fiszkord.users.UserRepository;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -25,7 +20,6 @@ public class SubjectService {
 
     private final SubjectRepository subjectRepository;
     private final GroupRepository groupRepository;
-    private final UserRepository userRepository;
 
     public ResponseEntity<String> createSubject(SubjectRequest request, Principal connectedUser) {
         var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();
