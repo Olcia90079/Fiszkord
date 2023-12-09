@@ -126,4 +126,38 @@ Wymagany parametr:
 Opcjonalny parametr
 - timestamp: Timestamp 
 (String formatu yyyy-mm-dd hh:mm:ss.[fff...])
+---
+## Fiszki (wymaga roli USER)
+### Stworzenie talii fiszek
+> POST /api/deck/create
 
+Wymaga access token jako bearer token. Wymagane body:
+- name: String
+- groupId: Integer
+- subjectId: Integer
+
+### Dodanie fiszki do talii
+> POST /api/flashcards/create-flashcard
+
+Wymaga access token jako bearer token. Wymagane body:
+- front: String
+- back: String
+- groupId: Integer
+- deckId: Integer
+
+### Talie danego przedmiotu
+> GET /api/decks/subject-decks?subjectId={}  
+
+Zwraca wszystkie talie i ich fiszki dla danego przedmiotu  
+Wymaga access token jako bearer token. Wymagany parametr:
+- subjectId: Integer
+
+### Fiszki danej talii
+> GET /api/flashcards/deck-flashcards?groupId={}&deckId={}
+
+Zwraca fiszki danej talii.
+Wymaga access token jako bearer token. Wymagane parametry:
+- groupId: Integer
+- subjectId: Integer
+- 
+---

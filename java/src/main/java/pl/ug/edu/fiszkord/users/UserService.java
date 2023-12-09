@@ -5,10 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.ug.edu.fiszkord.subjects.Subject;
+import pl.ug.edu.fiszkord.groups.GroupRepository;
 
 import java.security.Principal;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +15,7 @@ public class UserService {
 
     private final PasswordEncoder passwordEncoder;
     private final UserRepository repository;
+    private final GroupRepository groupRepository;
     public void changePassword(ChangePasswordRequest request, Principal connectedUser) {
 
         var user = (User) ((UsernamePasswordAuthenticationToken) connectedUser).getPrincipal();

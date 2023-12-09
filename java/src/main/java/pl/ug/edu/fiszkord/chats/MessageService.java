@@ -1,11 +1,7 @@
 package pl.ug.edu.fiszkord.chats;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import pl.ug.edu.fiszkord.groups.GroupRepository;
 import pl.ug.edu.fiszkord.subjects.Subject;
 import pl.ug.edu.fiszkord.subjects.SubjectRepository;
 
