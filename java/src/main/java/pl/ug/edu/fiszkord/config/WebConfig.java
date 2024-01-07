@@ -17,7 +17,7 @@ public class WebConfig implements WebMvcConfigurer
                 .maxAge(3600)
                 .allowedHeaders("Accept", "Content-Type", "Origin",
                         "Authorization", "X-Auth-Token")
-                .exposedHeaders("X-Auth-Token", "Authorization")
+                .exposedHeaders("X-Auth-Token", "Authorization", "Access-Control-Allow-Origin")
                 .allowedMethods("POST", "GET", "DELETE", "PUT", "OPTIONS");
     }
 }
