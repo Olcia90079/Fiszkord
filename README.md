@@ -127,8 +127,11 @@ Opcjonalny parametr
 - timestamp: Timestamp 
 (String formatu yyyy-mm-dd hh:mm:ss.[fff...])
 ---
+
 ## Fiszki (wymaga roli USER)
+
 ### Stworzenie talii fiszek
+
 > POST /api/deck/create
 
 Wymaga access token jako bearer token. Wymagane body:
@@ -137,6 +140,7 @@ Wymaga access token jako bearer token. Wymagane body:
 - subjectId: Integer
 
 ### Dodanie fiszki do talii
+
 > POST /api/flashcards/create-flashcard
 
 Wymaga access token jako bearer token. Wymagane body:
@@ -146,6 +150,7 @@ Wymaga access token jako bearer token. Wymagane body:
 - deckId: Integer
 
 ### Talie danego przedmiotu
+
 > GET /api/decks/subject-decks?subjectId={}  
 
 Zwraca wszystkie talie i ich fiszki dla danego przedmiotu  
@@ -153,11 +158,27 @@ Wymaga access token jako bearer token. Wymagany parametr:
 - subjectId: Integer
 
 ### Fiszki danej talii
+
 > GET /api/flashcards/deck-flashcards?groupId={}&deckId={}
 
 Zwraca fiszki danej talii.
 Wymaga access token jako bearer token. Wymagane parametry:
 - groupId: Integer
 - subjectId: Integer
-- 
+---
+
+## GPT (wymaga roli USER)
+
+### Podpowiedź rewersu dla fiszki
+
+> #### GET /api/gpt/flashcard-hint?groupName={}&userPrompt={}
+
+Zwraca odpowiedź od gpt-3.5-turbo na zapytanie:
+> Podaj wyjaśnienie zagadnienia z kategorii `groupName' na max 256 znaków. 
+> Nie opisuj co oznacza podana wcześniej kategoria, 
+> tylko weź ją pod uwagę wyjaśniając następujące zagadnienie: 'userPrompt'.
+
+Wymaga access token jako bearer token. Parametry:
+- groupName: String
+- userPrompt: String
 ---
