@@ -1,5 +1,7 @@
 package pl.ug.edu.fiszkord.config;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.client.RestTemplate;
 import pl.ug.edu.fiszkord.auditing.ApplicationAuditAware;
 import pl.ug.edu.fiszkord.users.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -49,6 +51,5 @@ public class ApplicationConfig {
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }
-
 
 }
