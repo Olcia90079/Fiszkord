@@ -23,7 +23,7 @@ public class SecurityApplication {
 			AuthenticationService service
 	) {
 		return args -> {
-			var admin = RegisterRequest.builder()
+			/*var admin = RegisterRequest.builder()
 					.firstname("Admin")
 					.lastname("Admin")
 					.email("admin@mail.com")
@@ -48,7 +48,7 @@ public class SecurityApplication {
 					.password("password")
 					.role(USER)
 					.build();
-			System.out.println("User token: " + service.register(user).getAccessToken());
+			System.out.println("User token: " + service.register(user).getAccessToken());*/
 
 		};
 	}
