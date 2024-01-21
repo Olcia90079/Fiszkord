@@ -33,7 +33,8 @@ public class GptController {
     @GetMapping("/flashcard-hint")
     public ResponseEntity<String> chat(@RequestParam String groupName, @RequestParam String userPrompt) {
         String prompt = "Podaj wyjaśnienie zagadnienia z kategorii `" + groupName
-                + "' na max 256 znaków. Nie opisuj co oznacza podana wcześniej kategoria," +
+                + "'. Konieczne jest, by długość twojej odpowiedzi nie przekraczała 400 znaków." +
+                " Nie opisuj co oznacza podana wcześniej kategoria," +
                 " tylko weź ją pod uwagę wyjaśniając następujące zagadnienie: " + userPrompt;
 
         GptRequest request = new GptRequest(model, prompt);

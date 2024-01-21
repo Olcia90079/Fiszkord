@@ -18,6 +18,7 @@ public class Flashcard {
     private Integer id;
 
     private String front;
+    @Column(columnDefinition = "TEXT")
     private String back;
 
     @ManyToOne
